@@ -1,0 +1,34 @@
+what is a publiched project?
+what is an SI user?
+Returns json arrays. do i need to parse from json to javascript?
+X-DTSI-Key creation?
+Will API key be available when i get dtools access
+
+Get All Projects
+https://api.d-tools.com/SI/Subscribe/Projects?clients[0]={clients[0]}&clients[1]={clients[1]}&progresses[0]={progresses[0]}&progresses[1]={progresses[1]}&includeImported={includeImported}&searchText={searchText}&pageNumber={pageNumber}&pageSize={pageSize}
+clients = (Optional) filters for particular client
+progresses = (Optional) filters for particular progresses
+includeImported = Boolean. If false will only see projects not includeImported
+searchText = search text
+pageNumber
+pageSize
+
+Get Specific Project Information
+https://api.d-tools.com/SI/Subscribe/Projects?id={id}&coNumber={coNumber}&aggregateBy={aggregateBy}&getAdjustmentsByItem={getAdjustmentsByItem}
+for url you need
+id = project id
+coNumber = (Optional) Change Order coNumber
+aggregateBy = (Optional) can be a value for Location, Item or Phase
+getAdjustmentsByItem = (Optional) If true then adjustments are returned with each project item. If false the adjustments are aggreegated and returend as project items.
+
+API Key
+API callers must add to each call a custom header named X-DTSI-ApiKey, along with the value of the API key.
+For example, if the API key value is abcdefghijklmopqrstuvwxyz, the custom header would be as follows:
+
+X-DTSI-ApiKey: abcdefghijklmopqrstuvwxyz
+
+Process
+- API call to get all projects.
+- Parse and interpret from array of information which project you want details on.
+- Use Project id to perform second API call for specific project you want details on.
+- Parse and access the projects details from stored array.
